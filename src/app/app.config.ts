@@ -6,6 +6,7 @@ import { RecipesEffects } from './data-access/store/recipes.effects';
 import { provideStore } from '@ngrx/store';
 import { recipesReducer } from './data-access/store/recipes.reducer';
 import { provideHttpClient } from '@angular/common/http';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +17,6 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       recipes: recipesReducer,
     }),
+    provideStoreDevtools(),
   ],
 };
