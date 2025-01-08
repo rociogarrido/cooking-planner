@@ -28,10 +28,6 @@ export class RecipeListComponent {
 
   constructor(private store: Store<AppState>) {
     this.recipes$ = this.store.select(selectAllRecipes);
-
-    this.recipes$.subscribe((recipes) => {
-      console.log('Recetas:', recipes);
-    });
   }
 
   ngOnInit(): void {
