@@ -1,1 +1,8 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+  <span class="app-title">Cooking Planner</span>
+  <span class="spacer"></span>
+
+  <a mat-button [routerLink]="['/recipes']">Recipes</a>
+  <a mat-button [routerLink]="['/planner']">Planner</a>
+  <a mat-button [routerLink]="['/shopping-list']">Shopping List</a>
+</mat-toolbar>
