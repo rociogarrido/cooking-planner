@@ -11,11 +11,12 @@ import {
 } from '../../../data-access/store/recipes.selector';
 import { CommonModule } from '@angular/common';
 import { loadRecipes } from '../../../data-access/store/recipes.actions';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-list',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, RouterLink],
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.scss',
 })
