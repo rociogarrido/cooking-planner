@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
-  <span class="app-title">Cooking Planner</span>
+  <span class="navbar-title">Cooking Planner</span>
   <span class="spacer"></span>
 
-  <a mat-button [routerLink]="['/recipes']">Recipes</a>
-  <a mat-button [routerLink]="['/planner']">Planner</a>
-  <a mat-button [routerLink]="['/shopping-list']">Shopping List</a>
+  <button mat-flat-button [routerLink]="['/recipes']">Recipes</button>
+  <button mat-flat-button [routerLink]="['/planner']">Planner</button>
+  <button mat-flat-button [routerLink]="['/shopping-list']">
+    Shopping List
+  </button>
 </mat-toolbar>
