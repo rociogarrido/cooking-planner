@@ -1,1 +1,20 @@
-<p>planner-calendar works!</p>
+<div class="planner">
+  <h2>Weekly Planner</h2>
+  <div class="planner-grid">
+    <div *ngFor="let day of week">
+      <h3>{{ day.day }}</h3>
+      <a
+        class="recipe-card-link"
+        *ngFor="let recipe of day.recipes"
+        [routerLink]="['/recipes', recipe.id]"
+      >
+        <mat-card>
+          <img mat-card-image [src]="recipe.imageUrl" alt="{{ recipe.name }}" />
+          <mat-card-header>
+            <mat-card-title>{{ recipe.name }}</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+</div>
