@@ -29,7 +29,12 @@ import { AddToPlannerDialogComponent } from '../../planner/add-to-planner-dialog
 export class RecipeDetailComponent {
   recipe$!: Observable<Recipe | undefined>;
 
-  constructor(private route: ActivatedRoute, private store: Store<AppState>, private dialog: MatDialog, private plannerService: PlannerService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<AppState>,
+    private dialog: MatDialog,
+    private plannerService: PlannerService
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -46,10 +51,7 @@ export class RecipeDetailComponent {
     dialogRef.afterClosed().subscribe((selectedDate) => {
       if (selectedDate) {
         const formattedDate = selectedDate.toISOString().split('T')[0];
-        this.plannerService.addRecipeToPlanner(formattedDate, recipe.name);
-        console.log(
-          `La receta "${recipe.name}" se ha añadido al planner para el día ${formattedDate}.`
-        );
+        this.plannerService.addRecipeToPlanner(formattedDate, recipe);
       }
     });
   }
