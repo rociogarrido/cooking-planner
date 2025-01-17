@@ -12,6 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialog } from '@angular/material/dialog';
 import { PlannerService } from '../../../data-access/services/planner.service';
 import { AddToPlannerDialogComponent } from '../../planner/add-to-planner-dialog/add-to-planner-dialog.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -22,6 +23,7 @@ import { AddToPlannerDialogComponent } from '../../planner/add-to-planner-dialog
     MatCardModule,
     MatButtonModule,
     MatListModule,
+    MatSnackBarModule,
   ],
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.scss',
@@ -33,7 +35,8 @@ export class RecipeDetailComponent {
     private route: ActivatedRoute,
     private store: Store<AppState>,
     private dialog: MatDialog,
-    private plannerService: PlannerService
+    private plannerService: PlannerService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +55,17 @@ export class RecipeDetailComponent {
       if (selectedDate) {
         const formattedDate = selectedDate.toISOString().split('T')[0];
         this.plannerService.addRecipeToPlanner(formattedDate, recipe);
+
+        this.snackBar.open(
+          `Recipe "${recipe.name}" added to your planner!`,
+          'Close',
+          {
+            duration: 5000,
+            panelClass: 'custom-snackbar',
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          }
+        );
       }
     });
   }
