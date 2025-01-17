@@ -2,7 +2,7 @@
   <h2>Weekly Planner</h2>
   <div class="planner-grid">
     <div *ngFor="let day of week">
-      <h3>{{ day.day }}</h3>
+      <h3>{{ day.day | date: 'EEE, d MMM.' }}</h3>
       <a
         class="recipe-card-link"
         *ngFor="let recipe of day.recipes"
