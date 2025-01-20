@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Recipe } from '../../../data-access/models/recipe.model';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import {
+  ActivatedRoute,
+  Router,
+  RouterLink,
+  RouterOutlet,
+} from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectAllRecipes } from '../../../data-access/store/recipes.selector';
 import { AppState } from '../../../app.state';
@@ -36,7 +41,8 @@ export class RecipeDetailComponent {
     private store: Store<AppState>,
     private dialog: MatDialog,
     private plannerService: PlannerService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -56,16 +62,17 @@ export class RecipeDetailComponent {
         const formattedDate = selectedDate.toISOString().split('T')[0];
         this.plannerService.addRecipeToPlanner(formattedDate, recipe);
 
-        this.snackBar.open(
-          `Recipe "${recipe.name}" added to your planner!`,
-          'Close',
-          {
+        this.snackBar
+          .open(`Recipe "${recipe.name}" added to your planner!`, 'Planner', {
             duration: 5000,
             panelClass: 'custom-snackbar',
             horizontalPosition: 'center',
             verticalPosition: 'top',
-          }
-        );
+          })
+          .onAction()
+          .subscribe(() => {
+            this.router.navigate(['/planner']);
+          });
       }
     });
   }
