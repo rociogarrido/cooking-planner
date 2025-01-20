@@ -5,7 +5,12 @@ import { Recipe } from '../models/recipe.model';
   providedIn: 'root',
 })
 export class PlannerService {
+  private readonly STORAGE_KEY = 'plannerData';
   private planner: { day: string; recipes: Recipe[] }[] = [];
+
+  constructor() {
+    this.loadFromStorage();
+  }
 
   addRecipeToPlanner(day: string, recipe: Recipe): void {
     let dayEntry = this.planner.find((d) => d.day === day);
@@ -14,9 +19,22 @@ export class PlannerService {
       this.planner.push(dayEntry);
     }
     dayEntry.recipes.push(recipe);
+
+    this.saveToStorage();
   }
 
   getPlanner(): { day: string; recipes: Recipe[] }[] {
     return this.planner;
+  }
+
+  private saveToStorage(): void {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.planner));
+  }
+
+  private loadFromStorage(): void {
+    const storedData = localStorage.getItem(this.STORAGE_KEY);
+    if (storedData) {
+      this.planner = JSON.parse(storedData);
+    }
   }
 }
