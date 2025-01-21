@@ -1,15 +1,19 @@
-<div class="recipe-grid">
+<section class="recipe-grid" aria-label="Recipe List">
   <a
     class="recipe-card-link"
     *ngFor="let recipe of recipes$ | async"
     [routerLink]="['/recipes', recipe.id]"
+    [attr.aria-label]="'View details for ' + recipe.name"
   >
     <mat-card class="recipe-card">
-      <img mat-card-image [src]="recipe.imageUrl" alt="{{ recipe.name }}" />
+      <img
+        mat-card-image
+        [src]="recipe.imageUrl"
+        [alt]="'Image of ' + recipe.name"
+      />
       <mat-card-header>
         <mat-card-title>{{ recipe.name }}</mat-card-title>
       </mat-card-header>
     </mat-card>
   </a>
-</div>
-
+</section>
