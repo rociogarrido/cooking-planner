@@ -4,28 +4,44 @@
       <mat-card-title>{{ recipe.name }}</mat-card-title>
     </mat-card-header>
 
-    <img mat-card-image [src]="recipe.imageUrl" alt="{{ recipe.name }}" />
+    <img
+      mat-card-image
+      [src]="recipe.imageUrl"
+      alt="{{ recipe.name }}"
+      [alt]="'Image of ' + recipe.name"
+    />
 
     <mat-card-content>
       <h3>Ingredients:</h3>
       <mat-list>
-        <mat-list-item *ngFor="let ingredient of recipe.ingredients">
+        <mat-list-item
+          *ngFor="let ingredient of recipe.ingredients"
+          role="listitem"
+        >
           {{ ingredient.quantity }} {{ ingredient.unit }} of
           {{ ingredient.name }}
         </mat-list-item>
       </mat-list>
       <h3>Steps:</h3>
-      <p>{{ recipe.description }}</p>
+      <p id="recipe-steps" aria-label="Steps to prepare the recipe">
+        {{ recipe.description }}
+      </p>
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button color="primary" [routerLink]="['/recipes']">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/recipes']"
+        aria-label="Back to the list of recipes"
+      >
         Back to Recipes
       </button>
       <button
         mat-raised-button
         color="accent"
         (click)="openAddToPlannerDialog(recipe)"
+        [attr.aria-label]="'Add ' + recipe.name + ' to the weekly planner'"
       >
         Add to planner
       </button>
