@@ -1,15 +1,20 @@
 <div class="planner">
   <h2>Weekly Planner</h2>
-  <div class="planner-grid">
+  <div class="planner-grid" aria-labelledby="planner-title">
     <div *ngFor="let day of week">
-      <h3>{{ day.day | date: 'EEE, d MMM.' }}</h3>
+      <h3>{{ day.day | date : "EEE, d MMM." }}</h3>
       <a
         class="recipe-card-link"
         *ngFor="let recipe of day.recipes"
         [routerLink]="['/recipes', recipe.id]"
+        [attr.aria-label]="'View details for recipe ' + recipe.name"
       >
         <mat-card>
-          <img mat-card-image [src]="recipe.imageUrl" alt="{{ recipe.name }}" />
+          <img
+            mat-card-image
+            [src]="recipe.imageUrl"
+            alt="Image of {{ recipe.name }}"
+          />
           <mat-card-header>
             <mat-card-title>{{ recipe.name }}</mat-card-title>
           </mat-card-header>
