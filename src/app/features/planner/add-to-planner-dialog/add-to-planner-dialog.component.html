@@ -1,17 +1,50 @@
-<h2 mat-dialog-title>Add recipe to Planner</h2>
-<button mat-icon-button mat-dialog-close class="close-button">
+<h2 mat-dialog-title id="dialog-title">Add Recipe to Planner</h2>
+<button 
+  mat-icon-button 
+  mat-dialog-close 
+  class="close-button" 
+  aria-label="Close dialog"
+>
   <mat-icon>close</mat-icon>
 </button>
 <mat-dialog-content>
   <mat-form-field>
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" />
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <input 
+      matInput 
+      [matDatepicker]="picker" 
+      [(ngModel)]="selectedDate" 
+      aria-labelledby="dialog-title"
+      aria-describedby="date-description"
+    />
+    <mat-datepicker-toggle 
+      matIconSuffix 
+      [for]="picker" 
+      aria-label="Open date picker"
+    ></mat-datepicker-toggle>
     <mat-datepicker #picker>
       <mat-datepicker-actions>
-        <button mat-button matDatepickerCancel (click)="onCancel()">Cancel</button>
-        <button mat-raised-button matDatepickerApply (click)="onConfirm()">Apply</button>
+        <button 
+          mat-button 
+          matDatepickerCancel 
+          (click)="onCancel()" 
+          aria-label="Cancel date selection"
+        >
+          Cancel
+        </button>
+        <button 
+          mat-raised-button 
+          matDatepickerApply 
+          (click)="onConfirm()" 
+          aria-label="Confirm date selection"
+        >
+          Apply
+        </button>
       </mat-datepicker-actions>
     </mat-datepicker>
   </mat-form-field>
+  <p id="date-description" class="visually-hidden">
+    Use the date picker to select a date for adding the recipe to your planner.
+  </p>
 </mat-dialog-content>
+
