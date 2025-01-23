@@ -1,1 +1,26 @@
-<p>shopping-list works!</p>
+<div class="shopping-list">
+  <h2>Shopping List</h2>
+
+  <mat-list role="list" *ngIf="shoppingList.length > 0; else emptyList">
+    <mat-list-item role="listitem" *ngFor="let ingredient of shoppingList">
+      <p mat-line>
+        {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
+      </p>
+    </mat-list-item>
+  </mat-list>
+
+  <ng-template #emptyList>
+    <p class="empty-message">Your shopping list is empty!</p>
+  </ng-template>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="shoppingList.length === 0"
+      (click)="clearList()"
+    >
+      Clear Shopping List
+    </button>
+  </div>
+</div>
