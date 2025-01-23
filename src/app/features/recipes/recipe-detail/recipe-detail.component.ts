@@ -18,6 +18,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { PlannerService } from '../../../data-access/services/planner.service';
 import { AddToPlannerDialogComponent } from '../../planner/add-to-planner-dialog/add-to-planner-dialog.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ShoppingListService } from '../../../data-access/services/shopping-list.service';
+import { Ingredient } from '../../../data-access/models/ingredient.model';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -42,7 +44,8 @@ export class RecipeDetailComponent {
     private dialog: MatDialog,
     private plannerService: PlannerService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private shoppingListService: ShoppingListService
   ) {}
 
   ngOnInit(): void {
@@ -75,5 +78,10 @@ export class RecipeDetailComponent {
           });
       }
     });
+  }
+
+  addToShoppingList(ingredients: Ingredient[]): void {
+    this.shoppingListService.addIngredients(ingredients);
+    alert('Ingredients added to the shopping list!');
   }
 }
