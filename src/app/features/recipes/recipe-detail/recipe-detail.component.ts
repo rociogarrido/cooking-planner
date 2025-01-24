@@ -82,6 +82,16 @@ export class RecipeDetailComponent {
 
   addToShoppingList(ingredients: Ingredient[]): void {
     this.shoppingListService.addIngredients(ingredients);
-    alert('Ingredients added to the shopping list!');
+    this.snackBar
+    .open('Ingredients added to your shopping list!', 'Shopping List', {
+      duration: 5000,
+      panelClass: 'custom-snackbar',
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    })
+    .onAction()
+    .subscribe(() => {
+      this.router.navigate(['/shopping-list']);
+    });
   }
 }
