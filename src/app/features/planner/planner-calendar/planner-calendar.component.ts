@@ -51,10 +51,4 @@ export class PlannerCalendarComponent implements OnInit {
     });
   }
 
-  addRecipeToDay(day: string, recipe: Recipe): void {
-    const dayEntry = this.week.find((d) => d.day.startsWith(day));
-    if (dayEntry) {
-      dayEntry.recipes.push(recipe);
-    }
-  }
 }
