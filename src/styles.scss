@@ -10,3 +10,13 @@ p {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 1rem;
 }
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  flex-grow: 1;
+}
