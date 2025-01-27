@@ -12,6 +12,16 @@ mat-toolbar {
   flex: 1 1 auto;
 }
 
+.desktop-menu {
+  display: flex;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.mobile-menu {
+  display: none;
+}
+
 mat-icon {
   color: #009a3d;
 }
@@ -19,5 +29,14 @@ mat-icon {
 @media (max-width: 768px) {
   .navbar-title {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
   }
 }

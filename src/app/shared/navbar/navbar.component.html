@@ -1,7 +1,19 @@
 <mat-toolbar>
-  <span class="navbar-title" aria-label="Application title">Cooking Planner</span>
+  <span class="navbar-title" aria-label="Application title"
+    >Cooking Planner</span
+  >
   <span class="spacer"></span>
+
+  <div class="desktop-menu">
+    <button mat-flat-button [routerLink]="['/recipes']">Recipes</button>
+    <button mat-flat-button [routerLink]="['/planner']">Planner</button>
+    <button mat-flat-button [routerLink]="['/shopping-list']">
+      Shopping List
+    </button>
+  </div>
+
   <button
+    class="mobile-menu"
     mat-icon-button
     [matMenuTriggerFor]="menu"
     aria-label="Open navigation menu"
@@ -33,4 +45,3 @@
     Shopping List
   </button>
 </mat-menu>
-
