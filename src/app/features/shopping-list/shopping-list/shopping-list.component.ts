@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../../data-access/models/ingredient.model';
 import { ShoppingListService } from '../../../data-access/services/shopping-list.service';
 import { MatListModule } from '@angular/material/list';
@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.scss',
 })
-export class ShoppingListComponent {
+export class ShoppingListComponent implements OnInit {
   shoppingList: Ingredient[] = [];
 
   constructor(private shoppingListService: ShoppingListService) {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../../data-access/models/recipe.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -24,7 +24,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.scss',
 })
-export class RecipeListComponent {
+export class RecipeListComponent implements OnInit {
   recipes$: Observable<Recipe[]>;
 
   constructor(private store: Store<AppState>) {

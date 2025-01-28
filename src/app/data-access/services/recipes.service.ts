@@ -1,7 +1,25 @@
 import { inject, Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Ingredient, Recipe } from '../models/recipe.model';
 import { HttpClient } from '@angular/common/http';
+
+interface ApiResponse {
+  meals: {
+    idMeal: string;
+    strMeal: string;
+    strInstructions: string;
+    strMealThumb: string;
+    [key: string]: string | null;
+  }[];
+}
+
+interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strInstructions: string;
+  strMealThumb: string;
+  [key: string]: string | null;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +30,9 @@ export class RecipesService {
   http = inject(HttpClient);
 
   getRecipes(): Observable<Recipe[]> {
-    return this.http.get<any>(this.apiUrl).pipe(
+    return this.http.get<ApiResponse>(this.apiUrl).pipe(
       map((response) =>
-        response.meals.map((meal: any) => ({
+        response.meals.map((meal) => ({
           id: meal.idMeal,
           name: meal.strMeal,
           description: meal.strInstructions,
@@ -25,7 +43,7 @@ export class RecipesService {
     );
   }
 
-  private mapIngredients(meal: any): Ingredient[] {
+  private mapIngredients(meal: Meal): Ingredient[] {
     const ingredients: Ingredient[] = [];
     for (let i = 1; i <= 20; i++) {
       const ingredient = meal[`strIngredient${i}`];

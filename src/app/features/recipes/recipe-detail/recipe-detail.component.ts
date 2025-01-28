@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Recipe } from '../../../data-access/models/recipe.model';
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink,
-  RouterOutlet,
-} from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectAllRecipes } from '../../../data-access/store/recipes.selector';
 import { AppState } from '../../../app.state';
@@ -35,7 +30,7 @@ import { Ingredient } from '../../../data-access/models/ingredient.model';
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.scss',
 })
-export class RecipeDetailComponent {
+export class RecipeDetailComponent implements OnInit {
   recipe$!: Observable<Recipe | undefined>;
 
   constructor(
