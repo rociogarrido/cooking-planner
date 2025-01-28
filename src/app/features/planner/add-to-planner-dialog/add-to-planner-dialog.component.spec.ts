@@ -8,9 +8,8 @@ describe('AddToPlannerDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddToPlannerDialogComponent]
-    })
-    .compileComponents();
+      imports: [AddToPlannerDialogComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddToPlannerDialogComponent);
     component = fixture.componentInstance;

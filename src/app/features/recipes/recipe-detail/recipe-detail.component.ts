@@ -45,7 +45,7 @@ export class RecipeDetailComponent {
     private plannerService: PlannerService,
     private snackBar: MatSnackBar,
     private router: Router,
-    private shoppingListService: ShoppingListService
+    private shoppingListService: ShoppingListService,
   ) {}
 
   ngOnInit(): void {
@@ -83,15 +83,15 @@ export class RecipeDetailComponent {
   addToShoppingList(ingredients: Ingredient[]): void {
     this.shoppingListService.addIngredients(ingredients);
     this.snackBar
-    .open('Ingredients added to your shopping list!', 'Shopping List', {
-      duration: 5000,
-      panelClass: 'custom-snackbar',
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-    })
-    .onAction()
-    .subscribe(() => {
-      this.router.navigate(['/shopping-list']);
-    });
+      .open('Ingredients added to your shopping list!', 'Shopping List', {
+        duration: 5000,
+        panelClass: 'custom-snackbar',
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      })
+      .onAction()
+      .subscribe(() => {
+        this.router.navigate(['/shopping-list']);
+      });
   }
 }

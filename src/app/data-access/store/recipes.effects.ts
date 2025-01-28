@@ -20,9 +20,9 @@ export class RecipesEffects {
       mergeMap(() =>
         this.recipesService.getRecipes().pipe(
           map((recipes) => loadRecipesSuccess({ recipes })),
-          catchError(() => of(loadRecipesFailure()))
-        )
-      )
-    )
+          catchError(() => of(loadRecipesFailure())),
+        ),
+      ),
+    ),
   );
 }

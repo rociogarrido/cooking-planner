@@ -33,7 +33,7 @@ export class AddToPlannerDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<AddToPlannerDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { recipeName: string }
+    @Inject(MAT_DIALOG_DATA) public data: { recipeName: string },
   ) {}
 
   onConfirm(): void {

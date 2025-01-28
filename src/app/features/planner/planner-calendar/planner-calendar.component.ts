@@ -10,7 +10,13 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-planner-calendar',
   standalone: true,
-  imports: [MatTableModule, CommonModule, MatGridListModule, MatCardModule, RouterLink],
+  imports: [
+    MatTableModule,
+    CommonModule,
+    MatGridListModule,
+    MatCardModule,
+    RouterLink,
+  ],
   templateUrl: './planner-calendar.component.html',
   styleUrl: './planner-calendar.component.scss',
 })
@@ -50,5 +56,4 @@ export class PlannerCalendarComponent implements OnInit {
       };
     });
   }
-
 }

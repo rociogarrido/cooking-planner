@@ -20,8 +20,8 @@ export class RecipesService {
           description: meal.strInstructions,
           imageUrl: meal.strMealThumb,
           ingredients: this.mapIngredients(meal),
-        }))
-      )
+        })),
+      ),
     );
   }
 

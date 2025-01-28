@@ -6,10 +6,10 @@ export const selectRecipesState =
 
 export const selectAllRecipes = createSelector(
   selectRecipesState,
-  (state: RecipesState) => state.recipes
+  (state: RecipesState) => state.recipes,
 );
 
 export const selectRecipesLoading = createSelector(
   selectRecipesState,
-  (state: RecipesState) => state.loading
+  (state: RecipesState) => state.loading,
 );

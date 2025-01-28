@@ -1,6 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { Recipe } from '../models/recipe.model';
-import { loadRecipes, loadRecipesFailure, loadRecipesSuccess } from './recipes.actions';
+import {
+  loadRecipes,
+  loadRecipesFailure,
+  loadRecipesSuccess,
+} from './recipes.actions';
 
 export interface RecipesState {
   recipes: Recipe[];
@@ -20,5 +24,5 @@ export const recipesReducer = createReducer(
     recipes,
     loading: false,
   })),
-  on(loadRecipesFailure, (state) => ({ ...state, loading: false }))
+  on(loadRecipesFailure, (state) => ({ ...state, loading: false })),
 );
