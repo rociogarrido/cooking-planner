@@ -17,6 +17,13 @@
           />
           <mat-card-header>
             <mat-card-title>{{ recipe.name }}</mat-card-title>
+            <button
+              mat-fab
+              (click)="removeRecipeFromDay(day.day, recipe.id)"
+              aria-label="Remove recipe from planner"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
           </mat-card-header>
         </mat-card>
       </a>

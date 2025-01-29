@@ -6,6 +6,8 @@ import { PlannerService } from '../../../data-access/services/planner.service';
 import { MatCardModule } from '@angular/material/card';
 import { Recipe } from '../../../data-access/models/recipe.model';
 import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-planner-calendar',
@@ -16,6 +18,8 @@ import { RouterLink } from '@angular/router';
     MatGridListModule,
     MatCardModule,
     RouterLink,
+    MatIconModule,
+    MatButtonModule,
   ],
   templateUrl: './planner-calendar.component.html',
   styleUrl: './planner-calendar.component.scss',
@@ -55,5 +59,18 @@ export class PlannerCalendarComponent implements OnInit {
         recipes: [],
       };
     });
+  }
+
+  removeRecipeFromDay(day: string, recipeId: string): void {
+    const dayDate = new Date(day);
+    const dayEntry = this.week.find(
+      (d) => new Date(d.day).getTime() === dayDate.getTime(),
+    );
+
+    if (dayEntry) {
+      dayEntry.recipes = dayEntry.recipes.filter(
+        (recipe) => recipe.id !== recipeId,
+      );
+    }
   }
 }
