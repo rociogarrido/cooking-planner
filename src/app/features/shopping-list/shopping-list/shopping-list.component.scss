@@ -18,14 +18,10 @@
     color: #757575;
   }
 
-  .actions {
+  mat-card-actions {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-
-    button {
-      font-weight: bold;
-    }
+    gap: 10px;
   }
 }
 

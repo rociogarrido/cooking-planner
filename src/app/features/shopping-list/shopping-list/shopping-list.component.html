@@ -13,7 +13,7 @@
     <p class="empty-message">Your shopping list is empty!</p>
   </ng-template>
 
-  <div class="actions">
+  <mat-card-actions>
     <button
       mat-raised-button
       color="primary"
@@ -22,5 +22,10 @@
     >
       Clear Shopping List
     </button>
-  </div>
+
+    <button mat-raised-button color="primary" (click)="exportShoppingListToPDF()">
+      Export to PDF
+    </button>
+    
+  </mat-card-actions>
 </div>
