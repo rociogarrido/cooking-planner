@@ -3,30 +3,31 @@
   <div class="planner-grid" aria-labelledby="planner-title">
     <div *ngFor="let day of week">
       <h3>{{ day.day | date: 'EEE, d MMM.' }}</h3>
-      <a
-        class="recipe-card-link"
-        *ngFor="let recipe of day.recipes"
-        [routerLink]="['/recipes', recipe.id]"
-        [attr.aria-label]="'View details for recipe ' + recipe.name"
-      >
-        <mat-card>
+      <mat-card *ngFor="let recipe of day.recipes">
+        <a
+          class="recipe-card-link"
+          [routerLink]="['/recipes', recipe.id]"
+          [attr.aria-label]="'View details for recipe ' + recipe.name"
+        >
           <img
             mat-card-image
             [src]="recipe.imageUrl"
             alt="Image of {{ recipe.name }}"
           />
-          <mat-card-header>
-            <mat-card-title>{{ recipe.name }}</mat-card-title>
-            <button
-              mat-fab
-              (click)="removeRecipeFromDay(day.day, recipe.id)"
-              aria-label="Remove recipe from planner"
-            >
-              <mat-icon>delete</mat-icon>
-            </button>
-          </mat-card-header>
-        </mat-card>
-      </a>
+        </a>
+        <mat-card-header>
+          <mat-card-title>{{ recipe.name }}</mat-card-title>
+          <button
+            mat-mini-fab
+            (click)="
+              removeRecipeFromDay(day.day, recipe.id); $event.stopPropagation()
+            "
+            aria-label="Remove recipe from planner"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-header>
+      </mat-card>
     </div>
   </div>
 </div>
