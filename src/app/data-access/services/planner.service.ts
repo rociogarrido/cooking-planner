@@ -37,4 +37,19 @@ export class PlannerService {
       this.planner = JSON.parse(storedData);
     }
   }
+
+  removeRecipeFromPlanner(day: string, recipeId: string): void {
+    const dayEntry = this.planner.find((d) => d.day === day);
+    if (dayEntry) {
+      dayEntry.recipes = dayEntry.recipes.filter(
+        (recipe) => recipe.id !== recipeId,
+      );
+
+      if (dayEntry.recipes.length === 0) {
+        this.planner = this.planner.filter((d) => d.day !== day);
+      }
+
+      this.saveToStorage();
+    }
+  }
 }

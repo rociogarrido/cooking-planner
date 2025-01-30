@@ -62,15 +62,6 @@ export class PlannerCalendarComponent implements OnInit {
   }
 
   removeRecipeFromDay(day: string, recipeId: string): void {
-    const dayDate = new Date(day);
-    const dayEntry = this.week.find(
-      (d) => new Date(d.day).getTime() === dayDate.getTime(),
-    );
-
-    if (dayEntry) {
-      dayEntry.recipes = dayEntry.recipes.filter(
-        (recipe) => recipe.id !== recipeId,
-      );
-    }
+    this.plannerService.removeRecipeFromPlanner(day, recipeId);
   }
 }
