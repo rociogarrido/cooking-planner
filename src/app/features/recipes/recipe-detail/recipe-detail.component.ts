@@ -57,7 +57,10 @@ export class RecipeDetailComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((selectedDate) => {
       if (selectedDate) {
-        const formattedDate = selectedDate.toISOString().split('T')[0];
+        const localDate = new Date(
+          selectedDate.getTime() - selectedDate.getTimezoneOffset() * 60000,
+        );
+        const formattedDate = localDate.toISOString().split('T')[0];
         this.plannerService.addRecipeToPlanner(formattedDate, recipe);
 
         this.snackBar
