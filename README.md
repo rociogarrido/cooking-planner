@@ -1,27 +1,90 @@
-# CookingPlanner
+Cooking Planner
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+A simple and effective meal planning application built with Angular.
 
-## Development server
+🚀 Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+📅 Weekly Meal Planner: Organize meals for each day of the week.
 
-## Code scaffolding
+📋 Shopping List: Generate a shopping list based on planned recipes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+📂 Recipe Management: Add, edit, and delete recipes easily.
 
-## Build
+📌 Favorites & Categories: Save favorite recipes and organize them by category.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+📤 Export Shopping List: Download the list as a PDF or copy it to the clipboard.
 
-## Running unit tests
+📖 Installation & Setup
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1️⃣ Prerequisites
 
-## Running end-to-end tests
+Make sure you have the following installed:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Node.js (LTS version recommended)
 
-## Further help
+Angular CLI
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2️⃣ Clone the Repository
+
+git clone https://github.com/rociogarrido/cooking-planner.git
+cd cooking-planner
+
+3️⃣ Install Dependencies
+
+npm install
+
+4️⃣ Run the Application
+
+ng serve
+
+Visit http://localhost:4200/ in your browser.
+
+🔧 Configuration
+
+Environment Variables
+
+Create a .env file or configure environment.ts with necessary API keys or settings if needed.
+
+export const environment = {
+  production: false,
+  apiUrl: 'https://your-api-url.com',
+};
+
+🛠️ Tech Stack
+
+Frontend: Angular, TypeScript, Angular Material
+
+State Management: Services & RxJS
+
+Styling: SCSS, Flexbox/Grid
+
+Data Storage: Local Storage / Firebase (optional)
+
+📌 Development Guidelines
+
+Code Formatting
+
+This project uses Prettier and ESLint for code formatting and linting. Run:
+
+npm run format
+npm run lint
+
+Testing
+
+To run unit tests:
+
+ng test
+
+To run end-to-end tests:
+
+ng e2e
+
+📤 Deployment
+
+For production builds, run:
+
+ng build --prod
+
+Then deploy the dist/ folder to your preferred hosting provider.
+
+
