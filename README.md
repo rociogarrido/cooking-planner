@@ -1,90 +1,52 @@
-Cooking Planner
+# Cooking Planner 🍽️  
 
-A simple and effective meal planning application built with Angular.
+## Overview  
 
-🚀 Features
+The **Cooking Planner** is a simple and effective meal planning application built with Angular. It helps users organize their meals for the week, generate shopping lists, and manage their favorite recipes efficiently.  
 
-📅 Weekly Meal Planner: Organize meals for each day of the week.
+## Features  
 
-📋 Shopping List: Generate a shopping list based on planned recipes.
+- 📅 **Weekly Meal Planner** – Organize meals for each day of the week.  
+- 📋 **Shopping List** – Automatically generate a shopping list based on planned recipes.  
+- 📂 **Recipe Management** – Add, edit, and delete recipes easily.  
+- 📤 **Export Shopping List** – Download the list as a PDF or copy it to the clipboard.  
 
-📂 Recipe Management: Add, edit, and delete recipes easily.
+## Technologies Used  
 
-📌 Favorites & Categories: Save favorite recipes and organize them by category.
+- **Angular** – Frontend framework for building a dynamic UI.  
+- **TypeScript** – Strongly typed programming language for maintainable code.  
+- **Angular Material** – UI components for a modern, responsive design.  
+- **RxJS** – Reactive programming for handling data streams.  
+- **SCSS** – Styling with a modular and structured approach.  
 
-📤 Export Shopping List: Download the list as a PDF or copy it to the clipboard.
+## Installation & Setup  
 
-📖 Installation & Setup
+### Prerequisites  
 
-1️⃣ Prerequisites
+Ensure you have the following installed:  
+- [Node.js](https://nodejs.org/) (LTS version recommended)  
+- [Angular CLI](https://angular.io/cli)  
 
-Make sure you have the following installed:
+### Steps  
 
-Node.js (LTS version recommended)
-
-Angular CLI
-
-2️⃣ Clone the Repository
-
+1️⃣ **Clone the Repository**  
+```
 git clone https://github.com/rociogarrido/cooking-planner.git
 cd cooking-planner
+```
 
-3️⃣ Install Dependencies
-
+2️⃣ **Install Dependencies**
+```
 npm install
+```
 
-4️⃣ Run the Application
-
+3️⃣ **Run the Application**
+```
 ng serve
+```
 
-Visit http://localhost:4200/ in your browser.
-
-🔧 Configuration
-
-Environment Variables
-
-Create a .env file or configure environment.ts with necessary API keys or settings if needed.
-
-export const environment = {
-  production: false,
-  apiUrl: 'https://your-api-url.com',
-};
-
-🛠️ Tech Stack
-
-Frontend: Angular, TypeScript, Angular Material
-
-State Management: Services & RxJS
-
-Styling: SCSS, Flexbox/Grid
-
-Data Storage: Local Storage / Firebase (optional)
-
-📌 Development Guidelines
-
-Code Formatting
-
-This project uses Prettier and ESLint for code formatting and linting. Run:
-
-npm run format
-npm run lint
-
-Testing
-
-To run unit tests:
-
-ng test
-
-To run end-to-end tests:
-
-ng e2e
-
-📤 Deployment
-
-For production builds, run:
-
-ng build --prod
-
-Then deploy the dist/ folder to your preferred hosting provider.
-
+4. Open the application in your browser at:
+```
+http://localhost:4200
+```
 
